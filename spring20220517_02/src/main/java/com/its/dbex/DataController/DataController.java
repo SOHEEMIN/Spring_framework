@@ -21,6 +21,7 @@ public class DataController {
     public String saveForm(){
         return "save-form";
     }
+
     @PostMapping("/save")
     public String save(@RequestParam("val1") String val1, @RequestParam("val2") String val2){
         System.out.println("val1 = " + val1 + ", val2 = " + val2 );
