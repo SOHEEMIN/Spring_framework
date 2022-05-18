@@ -25,4 +25,13 @@ public class MemberService {
         List<MemberDTO> memberDTOList = memberRepository.findAll();
         return memberDTOList;
     }
+
+    public boolean login(MemberDTO memberDTO) {
+        boolean result = memberRepository.login(memberDTO);
+        if(result){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

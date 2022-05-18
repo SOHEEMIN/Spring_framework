@@ -12,6 +12,9 @@
 </head>
 <body>
     <form action="/login" method="post">
+        <input type="text" name="memberId" placeholder="memberId">
+        <input type="password" name="memberPassword" placeholder="memberPassword" >
+        <input type="submit" value="로그인">
 
     </form>
 

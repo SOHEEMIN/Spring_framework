@@ -35,16 +35,16 @@ public class MemberController {
         return "list";
     }
 
+    @GetMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO){
-        boolean loginResult = memberService.login(memberDTO);
-        if(loginResult){
+        boolean result = memberService.login(memberDTO);
+        if(result){
+            System.out.println("로그인 성공");
             return "main";
         } else{
-            System.out.println("ㅎㅎ");
-            return null;
+            System.out.println("로그인 실패");
+            return "save";
         }
     }
-
-
 
 }

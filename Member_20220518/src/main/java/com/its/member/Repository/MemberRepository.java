@@ -21,4 +21,11 @@ public class MemberRepository {
         return sql.selectList("Member.findAll");
     }
 
+    public boolean login(MemberDTO memberDTO) {
+        boolean result = false;
+        if(sql.selectOne("Member.login")){
+            result=true;
+        }
+        return result;
+    }
 }
