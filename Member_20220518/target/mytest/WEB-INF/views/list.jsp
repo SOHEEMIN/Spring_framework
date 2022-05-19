@@ -7,21 +7,42 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
     <h2>list.jsp</h2>
-    <c:forEach var="member" items="${memberList}">
-        아이디: ${member.memberId}<br>
-        비밀번호:${member.memberPassword}<br>
-        이름: ${member.memberName}<br>
-        나이: ${member.memberAge}<br>
-        핸드폰 번호: ${member.memberPhone}<br>
-        <br><br>
-    </c:forEach>
+    <div class="container">
+    <table class = "table">
+        <tr>
+            <th>m_id</th>
+            <th>memberId</th>
+            <th>memberPassword</th>
+            <th>memberName</th>
+            <th>memberAge</th>
+            <th>memberPhone</th>
+            <th>조회</th>
+            <th>삭제</th>
+        </tr>
+        <tr>
+            <c:forEach items="${memberList}" var="member">
+                <tr>
+                    <td>${member.m_id}</td>
+                    <td>${member.memberId}</td>
+                    <td>${member.memberPassword}</td>
+                    <td>${member.memberName}</td>
+                    <td>${member.memberAge}</td>
+                    <td>${member.memberPhone}</td>
+                    <td><a href="/detail?m_id=${member.m_id}">조회</a> </td>
+                  <%-- 클릭한 회원의 정보를 DB에서 가져와서 detail.jsp에 출력 --%>
+                </tr>
+            </c:forEach>
+        </tr>
 
+    </table>
+    </div>
 </body>
 </html>
