@@ -13,12 +13,14 @@
 <body>
     <h2>save.jsp</h2>
     <form action="/save" method="post">
-        <input type="text" name="memberId" placeholder="memberId">
-        <input type="password" name="memberPassword" placeholder="memberPassword" >
-        <input type="text" name="memberName" placeholder="memberName">
-        <input type="text" name="memberAge" placeholder="memberAge">
-        <input type="text" name="memberPhone" placeholder="memberPhone">
-        <input type="submit" value="전송">
+        <input type="text" name="memberId" placeholder="아이디">
+        <input type="password" name="memberPassword" placeholder="비밀번호" >
+        <input type="text" name="memberName" placeholder="이름">
+        <input type="text" name="memberAge" placeholder="나이">
+        <input type="text" name="memberPhone" placeholder="전화번호">
+        <input type="submit" value="회원가입">
+        <button>버튼tag가입</button>
+        <input type="button" value="button타입">
     </form>
 </body>
 </html>

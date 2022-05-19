@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -36,14 +37,16 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO){
-        boolean result = memberService.login(memberDTO);
-        if(result){
-            System.out.println("로그인 성공");
+    public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session){
+        MemberDTO loginMember = memberService.login(memberDTO);
+        // 세션(session)
+        if(loginMember != null){
+            model.addAttribute("loginMember", loginMember);
+            session.setAttribute("loginMemberId", loginMember.getMemberId());
+            session.setAttribute("loginId", loginMember.getM_id());
             return "main";
         } else{
-            System.out.println("로그인 실패");
-            return "save_fail";
+            return "login";
         }
     }
 

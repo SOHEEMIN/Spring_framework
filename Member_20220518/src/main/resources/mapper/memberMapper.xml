@@ -11,7 +11,8 @@
     <select id="findAll" resultType="member">
         select * from member_table
     </select>
-    <select id="login"  resultType="member">
+    <!-- 로그인이니까 주는 값도 있고(parameter)받는 값도 있음(result)-->
+    <select id="login"  parameterType="member" resultType="member">
         select * from member_table where memberId = #{memberId} and memberPassword = #{memberPassword}
     </select>
 

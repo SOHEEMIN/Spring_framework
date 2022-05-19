@@ -12,12 +12,8 @@
 </head>
 <body>
     <h2>index.jsp</h2>
-    <a href="/save-form">회원가입</a>
-    <a href="/login-form">로그인</a>
-    <a href="/findAll">회원목록</a>
-    로그인 회원 정보: ${loginMember}
-    세션에 담은 memberId: ${sessionScope.loginMemberId}
-    세션에 담은 m_id:${sessionScope.loginId}
-
+    <a href="/save-form">회원가입 페이지</a>
+    <a href="/login-form">로그인 페이지</a>
+    <a href="/findAll">회원목록 출력 페이지</a>
 </body>
 </html>
