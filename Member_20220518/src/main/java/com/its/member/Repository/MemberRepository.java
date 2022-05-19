@@ -23,7 +23,7 @@ public class MemberRepository {
 
     public boolean login(MemberDTO memberDTO) {
         boolean result = false;
-        if(sql.selectOne("Member.login")){
+        if(sql.selectOne("Member.login", memberDTO)!=null){
             result=true;
         }
         return result;

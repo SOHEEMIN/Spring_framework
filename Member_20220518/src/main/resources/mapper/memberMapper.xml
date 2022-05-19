@@ -12,7 +12,7 @@
         select * from member_table
     </select>
     <select id="login"  resultType="member">
-        select * from member where memberId = #{memberId} and memberPassword = #{mamberPassword}
+        select * from member_table where memberId = #{memberId} and memberPassword = #{memberPassword}
     </select>
 
 </mapper>

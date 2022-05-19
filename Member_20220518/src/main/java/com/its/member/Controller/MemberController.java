@@ -35,7 +35,7 @@ public class MemberController {
         return "list";
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO){
         boolean result = memberService.login(memberDTO);
         if(result){
@@ -43,7 +43,7 @@ public class MemberController {
             return "main";
         } else{
             System.out.println("로그인 실패");
-            return "save";
+            return "save_fail";
         }
     }
 
