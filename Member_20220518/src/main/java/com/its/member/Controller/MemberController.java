@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -49,5 +50,14 @@ public class MemberController {
             return "login";
         }
     }
+    //db에 있는 것을 보고싶으면 컨트롤러에 요청. 컨트롤러는 모델에 담아서 디비로 가져간다.
+    @GetMapping("/detail")
+    public String findById(@RequestParam("m_id")long m_id, Model model){
+        System.out.println("m_id = " + m_id);
+        MemberDTO memberDTO = memberService.findById(m_id);
+        model.addAttribute("member", memberDTO);
+        return "detail";
+    }
+
 
 }

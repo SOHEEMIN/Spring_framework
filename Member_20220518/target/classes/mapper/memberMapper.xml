@@ -15,5 +15,9 @@
     <select id="login"  parameterType="member" resultType="member">
         select * from member_table where memberId = #{memberId} and memberPassword = #{memberPassword}
     </select>
+    <select id="findById" parameterType="long" resultType="member">
+        select * from member_table where m_id = #{m_id}
+    </select>
+
 
 </mapper>

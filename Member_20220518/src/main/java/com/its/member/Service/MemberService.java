@@ -3,6 +3,7 @@ package com.its.member.Service;
 import com.its.member.DTO.MemberDTO;
 import com.its.member.Repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,12 +23,19 @@ public class MemberService {
 
     }
     public List<MemberDTO> findAll() {
-        List<MemberDTO> memberDTOList = memberRepository.findAll();
-        return memberDTOList;
+//        List<MemberDTO> memberDTOList = memberRepository.findAll();
+//        return memberDTOList;
+//        위의 두줄 쓸 것을 밑의 한줄로 쓸 수 있음!
+        return memberRepository.findAll();
     }
 
     public MemberDTO login(MemberDTO memberDTO) {
         MemberDTO loginMember = memberRepository.login(memberDTO);
         return loginMember;
     }
+
+    public MemberDTO findById(long m_id){
+        return memberRepository.findById(m_id);
+    }
+
 }
