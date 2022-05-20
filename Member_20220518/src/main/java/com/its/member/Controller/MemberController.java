@@ -6,10 +6,7 @@ import com.its.member.Service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Member;
@@ -96,6 +93,21 @@ public class MemberController {
         }else{
             return "update-fail";
         }
+    }
+    @PostMapping("/duplicate-check")
+    public @ResponseBody String duplicateCheck(@RequestParam("memberId")String memberId){
+        System.out.println("memberId = " + memberId);
+        //memberId를 DB에서 중복값이 있는지 없는지 체크하고 없으면 ok, 있으면 no라는 String 값을 리턴받으세요.
+        String checkResult = memberService.duplicateCheck(memberId);
+        return checkResult; //바로 return chechResult를 걸면 ok.jsp 또는 no.jsp를 찾음. save.jsp에 쓴 ajax를 찾기 위해선 public String 사이에 @ResponsBody를 적어야함
+    }
+    @GetMapping("/response-test")
+    public @ResponseBody String responseTest(){
+        return "main";
+    }
+    @GetMapping("/response-test2")
+    public @ResponseBody List<MemberDTO> responseTest2(){
+        return memberService.findAll();
     }
 
 }
