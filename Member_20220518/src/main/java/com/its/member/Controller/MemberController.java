@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.Member;
 import java.util.List;
 
 @Controller
@@ -30,34 +31,49 @@ public class MemberController {
             return "save-fail";
         }
     }
+
     @GetMapping("/findAll")
-    public String findAll(Model model){
+    public String findAll(Model model) {
         List<MemberDTO> memberDTOList = memberService.findAll();
         model.addAttribute("memberList", memberDTOList);
         return "list";
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session){
+    public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session) {
         MemberDTO loginMember = memberService.login(memberDTO);
         // 세션(session)
-        if(loginMember != null){
+        if (loginMember != null) {
             model.addAttribute("loginMember", loginMember);
             session.setAttribute("loginMemberId", loginMember.getMemberId());
             session.setAttribute("loginId", loginMember.getM_id());
             return "main";
-        } else{
+        } else {
             return "login";
         }
     }
+
     //db에 있는 것을 보고싶으면 컨트롤러에 요청. 컨트롤러는 모델에 담아서 디비로 가져간다.
     @GetMapping("/detail")
-    public String findById(@RequestParam("m_id")long m_id, Model model){
+    public String findById(@RequestParam("m_id") long m_id, Model model) {
         System.out.println("m_id = " + m_id);
         MemberDTO memberDTO = memberService.findById(m_id);
         model.addAttribute("member", memberDTO);
         return "detail";
     }
 
+    @GetMapping("/delete") //링크는 무조건 get!
+    public String delete(@RequestParam("memberId") String memberId) {
+        int memberDTOList = memberService.delete(memberId);
+        if (memberDTOList > 0) {
+            System.out.println("삭제 성공");
+            //redirect: 컨트롤러의 메서드에서 다른 메서드의 주소를 호출
+            //redirect를 이용하여 findAll 주소 요청 /jsp가 오지 않고 주소가 옴
+            return "redirect:/findAll";
+        } else {
+            System.out.println("삭제 실패");
+        }
+        return "index";
+    }
 
 }

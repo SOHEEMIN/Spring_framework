@@ -3,7 +3,6 @@ package com.its.member.Service;
 import com.its.member.DTO.MemberDTO;
 import com.its.member.Repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,4 +37,11 @@ public class MemberService {
         return memberRepository.findById(m_id);
     }
 
+    public int delete(String memberId) {
+        return memberRepository.delete(memberId);
+    }
+
+//    public int update(String memberName) {
+//        return memberRepository.update(memberName);
+//    }
 }
