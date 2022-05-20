@@ -34,7 +34,9 @@ public class MemberRepository {
         return sql.delete("Member.delete", memberId);
     }
 
-//    public int update(String memberName) {
-//
-//    }
+    public int update(MemberDTO memberDTO) {
+        return sql.update("Member.update", memberDTO);
+    }
+
+
 }

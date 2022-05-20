@@ -9,8 +9,18 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+
+    <h2 class="display-4">login.jsp</h2>
+    <div class="py-5 text-center">
     <form action="/login" method="post">
         <input type="text" name="memberId" placeholder="memberId">
         <input type="password" name="memberPassword" placeholder="memberPassword" >

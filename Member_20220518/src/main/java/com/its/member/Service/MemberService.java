@@ -12,15 +12,16 @@ public class MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-    public boolean save (MemberDTO memberDTO){
+    public boolean save(MemberDTO memberDTO) {
         int saveResult = memberRepository.save(memberDTO);
-        if(saveResult>0){
+        if (saveResult > 0) {
             return true;
         } else {
             return false;
         }
 
     }
+
     public List<MemberDTO> findAll() {
 //        List<MemberDTO> memberDTOList = memberRepository.findAll();
 //        return memberDTOList;
@@ -33,7 +34,7 @@ public class MemberService {
         return loginMember;
     }
 
-    public MemberDTO findById(long m_id){
+    public MemberDTO findById(long m_id) {
         return memberRepository.findById(m_id);
     }
 
@@ -41,7 +42,13 @@ public class MemberService {
         return memberRepository.delete(memberId);
     }
 
-//    public int update(String memberName) {
-//        return memberRepository.update(memberName);
-//    }
+
+    public boolean update(MemberDTO memberDTO) {
+        int updateResult = memberRepository.update(memberDTO);
+        if (updateResult > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
