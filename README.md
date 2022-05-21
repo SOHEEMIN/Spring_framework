@@ -12,4 +12,4 @@ https://www.notion.so/
 ### 20220519
 **배운 것 요약: member_table프로젝트, button 타입의 특징, session**
 ### 20220520
-**배운 것 요약: 회원정보 삭제, 수정, 아이디 중복체크기능, ajax 활용하여 새로고침 되지 않은 채 findById상세출력, 비동기방식 / ajax, @ResponsBody, redirect는 컨트롤러**
+**배운 것 요약: 회원정보 삭제, 수정, 아이디 중복체크기능, ajax 활용하여 새로고침 되지 않은 채 findById상세출력, 비동기방식 / ajax, @ResponsBody, redirect**
