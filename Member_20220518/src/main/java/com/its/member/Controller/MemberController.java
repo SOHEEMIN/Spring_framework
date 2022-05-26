@@ -99,7 +99,7 @@ public class MemberController {
         System.out.println("memberId = " + memberId);
         //memberId를 DB에서 중복값이 있는지 없는지 체크하고 없으면 ok, 있으면 no라는 String 값을 리턴받으세요.
         String checkResult = memberService.duplicateCheck(memberId);
-        return checkResult; //바로 return chechResult를 걸면 ok.jsp 또는 no.jsp를 찾음. save.jsp에 쓴 ajax를 찾기 위해선 public String 사이에 @ResponsBody를 적어야함
+        return checkResult; //바로 return checkResult를 걸면 ok.jsp 또는 no.jsp를 찾음. save.jsp에 쓴 ajax를 찾기 위해선 public String 사이에 @ResponsBody를 적어야함
     }
     @GetMapping("/response-test")
     public @ResponseBody String responseTest(){
@@ -109,6 +109,7 @@ public class MemberController {
     public @ResponseBody List<MemberDTO> responseTest2(){
         return memberService.findAll();
     }
+
     @GetMapping("/detail-ajax")
     public @ResponseBody MemberDTO findByIdAjax(@RequestParam("m_id") long m_id) {
         System.out.println("m_id = " + m_id);

@@ -34,7 +34,7 @@
                 <td>${member.memberName}</td>
                 <td>${member.memberAge}</td>
                 <td>${member.memberPhone}</td>
-                <td><a href="/detail?m_id=${member.m_id}">조회</a></td>
+                <td href="/detail?m_id=${member.m_id}">조회</td>
                 <td><a href="/delete?m_id=${member.m_id}">삭제</a></td>
                 <td><button class="btn btn-outline-info" onclick="detailByAjax('${member.m_id}')">조회</button></td>
                     <%-- 클릭한 회원의 정보를 DB에서 가져와서 detail.jsp에 출력 --%>

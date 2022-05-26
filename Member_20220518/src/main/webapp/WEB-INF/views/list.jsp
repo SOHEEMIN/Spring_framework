@@ -57,7 +57,7 @@
             type: "get", // http request method
             url: "detail-ajax", // 요청주소(컨트롤러 주소값)
             data: {"m_id": m_id}, // 전송하는 파라미터
-            dataType: "json", // 리턴받을 데이터 형식 (ajax로 주고 받을 땐 보통 json타입으로 지정. json으로 변환해주는건 pon.xml 130번쯤에 있음)
+            dataType: "json", // 리턴받을 데이터 형식 (ajax로 주고 받을 땐 보통 json타입으로 지정. json으로 변환해주는건 pom.xml 130번쯤에 있음)
             success: function (result) {
                 let output = "<table class='table'>";
                 output += "<tr>" +
